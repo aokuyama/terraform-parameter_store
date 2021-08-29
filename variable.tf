@@ -5,10 +5,11 @@ variable "region" {
 
 variable "secrets" {
   type = map(object({
-    description = string
     value       = string
-    tags        = object({})
+    description = optional(string)
+    tags        = optional(object({}))
   }))
+
   default = {
     "/test/param" = {
       value       = "testparam."
